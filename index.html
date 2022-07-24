@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Dyson Sphere Program Helper</title>
+    <!--     <script src="scripts.js"></script> -->
+  </head>
+
+  <body>
+
+    <h1>Dyson Sphere Program Helper</h1>
+
+    <p>
+      <a href="index.html">Home</a>
+    </p>
+
+    <h2>
+      Gathering stats
+    </h2>
+
+    <p>
+      <label for="veinUtilizationLevel">Vein Utilization level:</label>
+      <input type="number" id="veinUtilizationLevel" name="veinUtilizationLevel" value= "0" min="0" step="1">
+    </p>
+
+    <table>
+      <tr>
+        <td>Mining speed</td>
+        <td id="miningSpeed">100 %</td>
+      </tr>
+      <tr>
+        <td>Vein usage</td>
+        <td id="veinUsage">100 %</td>
+      </tr>
+      <tr>
+        <td>Vein yield</td>
+        <td id="veinYield">100 %</td>
+      </tr>
+      <tr>
+        <td>Vein lifespan</td>
+        <td id="veinLifespan">100 %</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <td>Number of veins to saturate Mk3 belt</td>
+        <td id="veinSaturateBelt">60</td>
+      </tr>
+      <tr>
+        <td>Number of liquid pumps to saturate Mk3 belt</td>
+        <td id="pumpSaturateBelt">36</td>
+      </tr>
+    </table>
+
+    <h2>Transportation stats</h2>
+
+    <p>
+      <label for="logisticsCarrierEngineLevel">Logistics Carrier Engine level:</label>
+      <input type="number" id="logisticsCarrierEngineLevel" name="logisticsCarrierEngineLevel" value= "6" min="6" step="1">
+    </p>
+
+    <table>
+      <tr>
+        <td>Logistic Drone Speed</td>
+        <td id="logisticDroneSpeed">22.4 m/s</td>
+      </tr>
+      <tr>
+        <td>Logistic Vessel Speed</td>
+        <td id="logisticVesselSpeed">1800 m/s or 0.045 AU/s</td>
+      </tr>
+      <tr>
+        <td>can travel 1 AU in</td>
+        <td id="logisticVesselAUTravelTime">22 seconds</td>
+      </tr>
+      <tr>
+        <td>can travel 1 LY in</td>
+        <td id="logisticVesselLYTravelTime">1333 seconds or 22 minutes</td>
+      </tr>
+      <tr>
+        <td>Logistic Vessel Warp Speed</td>
+        <td id="logisticVesselWarpSpeed">9.0 AU/s or 0.15 LY/s</td>
+      </tr>
+      <tr>
+        <td>during wrap can travel 1 LY in</td>
+        <td id="logisticVesselWarpLYTravelTime">7 seconds</td>
+      </tr>
+    </table>
+
+    <script>
+      function updateStats() {
+        let VULevel = veinUtilizationLevel.value;
+
+        let miningSpeed  = 1 + 0.1 * VULevel;
+        let veinUsage    = 0.94 ** VULevel;
+        let veinYield    = 1/veinUsage;
+        let veinLifespan = veinYield/miningSpeed;
+
+        let veinSaturateBelt = 30 / (miningSpeed * 0.5);
+        let pumpSaturateBelt = 30 / (miningSpeed * 5/6 );
+
+        document.getElementById("miningSpeed").innerHTML  = (miningSpeed*100).toFixed(2)  + ' %';
+        document.getElementById("veinUsage").innerHTML    = (veinUsage*100).toFixed(2)    + ' %';
+        document.getElementById("veinYield").innerHTML    = (veinYield*100).toFixed(2)    + ' %';
+        document.getElementById("veinLifespan").innerHTML = (veinLifespan*100).toFixed(2) + ' %';
+
+        document.getElementById("veinSaturateBelt").innerHTML = veinSaturateBelt.toFixed(2);
+        document.getElementById("pumpSaturateBelt").innerHTML = pumpSaturateBelt.toFixed(2);
+
+        let LCELevel = logisticsCarrierEngineLevel.value;
+
+        let logisticDroneSpeed         = LCELevel * 4 - 1.6;
+        let logisticVesselSpeed        = LCELevel * 300;
+        let logisticVesselWarpSpeed    = logisticVesselSpeed * 200;
+
+        document.getElementById("logisticDroneSpeed").innerHTML             = logisticDroneSpeed.toFixed(1) + ' m/s';
+        document.getElementById("logisticVesselSpeed").innerHTML            = logisticVesselSpeed + ' m/s or ' + (logisticVesselSpeed / 40000).toFixed(3) + ' /AU/s';
+        document.getElementById("logisticVesselAUTravelTime").innerHTML     = (40000 / logisticVesselSpeed).toFixed(0) + ' seconds';
+        document.getElementById("logisticVesselLYTravelTime").innerHTML     = (60 * 40000 / logisticVesselSpeed).toFixed(0) + ' seconds or ' + (60 * 40000 / logisticVesselSpeed / 60).toFixed(0) + ' minutes';
+        document.getElementById("logisticVesselWarpSpeed").innerHTML        = (logisticVesselWarpSpeed / 40000).toFixed(1) + ' AU/s or ' + (logisticVesselWarpSpeed / 40000 / 60).toFixed(3) + ' LY/s';
+        document.getElementById("logisticVesselWarpLYTravelTime").innerHTML = (60 * 40000 / logisticVesselWarpSpeed).toFixed(0) + ' seconds';
+      };
+
+
+      veinUtilizationLevel.onchange        = () => updateStats();
+      logisticsCarrierEngineLevel.onchange = () => updateStats();
+    </script>
+
+  </body>
+
+</html>
+
+<!-- <tr>
+<td></td>
+<td id=""></td>
+</tr> -->
