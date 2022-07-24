@@ -42,7 +42,7 @@
       </tr>
       <tr>
         <td>Crude oil seep half-life</td>
-        <td id="crudeOilSeepHalfLife">12.00 seconds</td>
+        <td id="crudeOilSeepHalfLife">12.00 hours</td>
       </tr>
     </table>
 
@@ -108,7 +108,7 @@
         document.getElementById("veinYield").innerHTML    = (veinYield*100).toFixed(2)    + ' %';
         document.getElementById("veinLifespan").innerHTML = (veinLifespan*100).toFixed(2) + ' %';
 
-        document.getElementById("crudeOilSeepHalfLife").innerHTML = (12 * veinLifespan).toFixed(2) + ' seconds';
+        document.getElementById("crudeOilSeepHalfLife").innerHTML = (12 * veinLifespan).toFixed(2) + ' hours';
 
         document.getElementById("veinSaturateBelt").innerHTML = veinSaturateBelt.toFixed(2);
         document.getElementById("pumpSaturateBelt").innerHTML = pumpSaturateBelt.toFixed(2);
