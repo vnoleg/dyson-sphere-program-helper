@@ -1,96 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   <head>
     <title>Dyson Sphere Program Helper</title>
-    <!--     <script src="scripts.js"></script> -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
 
   <body>
 
-    <h1>Dyson Sphere Program Helper</h1>
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+      <h1>Dyson Sphere Program Helper</h1>
+    </div>
 
-    <p>
-      <a href="index.html">Home</a>
-    </p>
+    <div class="container mt-5">
+      <h2>
+        Gathering stats
+      </h2>
 
-    <h2>
-      Gathering stats
-    </h2>
+      <p>
+        <label for="veinUtilizationLevel">Vein Utilization level:</label>
+        <input type="number" id="veinUtilizationLevel" name="veinUtilizationLevel" value= "0" min="0" step="1">
+      </p>
 
-    <p>
-      <label for="veinUtilizationLevel">Vein Utilization level:</label>
-      <input type="number" id="veinUtilizationLevel" name="veinUtilizationLevel" value= "0" min="0" step="1">
-    </p>
+      <table class="table table-bordered">
+        <tr>
+          <td>Mining speed</td>
+          <td id="miningSpeed">100 %</td>
+        </tr>
+        <tr>
+          <td>Vein usage</td>
+          <td id="veinUsage">100 %</td>
+        </tr>
+        <tr>
+          <td>Vein yield</td>
+          <td id="veinYield">100 %</td>
+        </tr>
+        <tr>
+          <td>Vein lifespan</td>
+          <td id="veinLifespan">100 %</td>
+        </tr>
+        <tr>
+          <td>Crude oil seep half-life</td>
+          <td id="crudeOilSeepHalfLife">12.00 hours</td>
+        </tr>
+        <tr>
+          <td>Number of veins to saturate Mk3 belt</td>
+          <td id="veinSaturateBelt">60</td>
+        </tr>
+        <tr>
+          <td>Number of liquid pumps to saturate Mk3 belt</td>
+          <td id="pumpSaturateBelt">36</td>
+        </tr>
+      </table>
 
-    <table>
-      <tr>
-        <td>Mining speed</td>
-        <td id="miningSpeed">100 %</td>
-      </tr>
-      <tr>
-        <td>Vein usage</td>
-        <td id="veinUsage">100 %</td>
-      </tr>
-      <tr>
-        <td>Vein yield</td>
-        <td id="veinYield">100 %</td>
-      </tr>
-      <tr>
-        <td>Vein lifespan</td>
-        <td id="veinLifespan">100 %</td>
-      </tr>
-      <tr>
-        <td>Crude oil seep half-life</td>
-        <td id="crudeOilSeepHalfLife">12.00 hours</td>
-      </tr>
-    </table>
+      <h2>Transportation stats</h2>
 
-    <table>
-      <tr>
-        <td>Number of veins to saturate Mk3 belt</td>
-        <td id="veinSaturateBelt">60</td>
-      </tr>
-      <tr>
-        <td>Number of liquid pumps to saturate Mk3 belt</td>
-        <td id="pumpSaturateBelt">36</td>
-      </tr>
-    </table>
+      <p>
+        <label for="logisticsCarrierEngineLevel">Logistics Carrier Engine level:</label>
+        <input type="number" id="logisticsCarrierEngineLevel" name="logisticsCarrierEngineLevel" value= "6" min="6" step="1">
+      </p>
 
-    <h2>Transportation stats</h2>
-
-    <p>
-      <label for="logisticsCarrierEngineLevel">Logistics Carrier Engine level:</label>
-      <input type="number" id="logisticsCarrierEngineLevel" name="logisticsCarrierEngineLevel" value= "6" min="6" step="1">
-    </p>
-
-    <table>
-      <tr>
-        <td>Logistic Drone Speed</td>
-        <td id="logisticDroneSpeed">22.4 m/s</td>
-      </tr>
-      <tr>
-        <td>Logistic Vessel Speed</td>
-        <td id="logisticVesselSpeed">1800 m/s or 0.045 AU/s</td>
-      </tr>
-      <tr>
-        <td>can travel 1 AU in</td>
-        <td id="logisticVesselAUTravelTime">22 seconds</td>
-      </tr>
-      <tr>
-        <td>can travel 1 LY in</td>
-        <td id="logisticVesselLYTravelTime">1333 seconds or 22 minutes</td>
-      </tr>
-      <tr>
-        <td>Logistic Vessel Warp Speed</td>
-        <td id="logisticVesselWarpSpeed">9.0 AU/s or 0.15 LY/s</td>
-      </tr>
-      <tr>
-        <td>during wrap can travel 1 LY in</td>
-        <td id="logisticVesselWarpLYTravelTime">7 seconds</td>
-      </tr>
-    </table>
-
+      <table class="table table-bordered">
+        <tr>
+          <td>Logistic Drone Speed</td>
+          <td id="logisticDroneSpeed">22.4 m/s</td>
+        </tr>
+        <tr>
+          <td>Logistic Vessel Speed</td>
+          <td id="logisticVesselSpeed">1800 m/s or 0.045 AU/s</td>
+        </tr>
+        <tr>
+          <td>can travel 1 AU in</td>
+          <td id="logisticVesselAUTravelTime">22 seconds</td>
+        </tr>
+        <tr>
+          <td>can travel 1 LY in</td>
+          <td id="logisticVesselLYTravelTime">1333 seconds or 22 minutes</td>
+        </tr>
+        <tr>
+          <td>Logistic Vessel Warp Speed</td>
+          <td id="logisticVesselWarpSpeed">9.0 AU/s or 0.15 LY/s</td>
+        </tr>
+        <tr>
+          <td>during wrap can travel 1 LY in</td>
+          <td id="logisticVesselWarpLYTravelTime">7 seconds</td>
+        </tr>
+      </table>
+    </div>
     <script>
       function updateStats() {
         let VULevel = veinUtilizationLevel.value;
